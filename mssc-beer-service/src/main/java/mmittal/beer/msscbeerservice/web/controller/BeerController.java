@@ -30,6 +30,7 @@ public class BeerController {
                                                    @RequestParam(value = "beerStyle", required = false) BeerStyleEnum beerStyle,
                                                    @RequestParam(value = "showInventoryOnHand", required = false) Boolean showInventoryOnHand){
 
+        System.out.println("coming heerree ");
         if (showInventoryOnHand == null) {
             showInventoryOnHand = false;
         }
@@ -43,6 +44,7 @@ public class BeerController {
         }
 
         BeerPagedList beerList = beerService.listBeers(beerName, beerStyle, PageRequest.of(pageNumber, pageSize), showInventoryOnHand);
+
 
         return new ResponseEntity<>(beerList, HttpStatus.OK);
     }
